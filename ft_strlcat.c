@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbabahmi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 23:07:41 by zbabahmi          #+#    #+#             */
-/*   Updated: 2022/10/08 00:44:27 by zbabahmi         ###   ########.fr       */
+/*   Created: 2022/10/08 00:37:20 by zbabahmi          #+#    #+#             */
+/*   Updated: 2022/10/08 00:42:27 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	zed;
+	size_t	d;
+	size_t	s;
+	size_t	i;
 
-	zed = ft_strlen(s) - 1;
-	while (zed >= 0)
+	d = ft_strlen(dst);
+	s = ft_strlen(src);
+	i = 0;
+	if (dstsize < d + 1)
+		return (dstsize + s);
+	if (dstsize > d + 1)
 	{
-		if (s[zed] == c)
-			return (&((char *) s)[zed]);
-		zed--;
+		while (src[i] != '\0' && d + 1 + i < dstsize)
+		{
+			dst[d + i] = src[i];
+			i++;
+		}
 	}
-	return (0);
+	dst[d + i] = '\0';
+	return (d + s);
 }
