@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbabahmi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 23:07:41 by zbabahmi          #+#    #+#             */
-/*   Updated: 2022/10/12 03:28:22 by zbabahmi         ###   ########.fr       */
+/*   Created: 2022/09/29 21:22:17 by zbabahmi          #+#    #+#             */
+/*   Updated: 2022/10/01 21:47:48 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_isalnum(int c)
 {
-	char	*last;
-	char	find;
-	size_t	zed;
-
-	last = (char *)s;
-	find = (char)c;
-	zed = ft_strlen(s);
-	while (zed > 0)
-	{
-		if (last[zed] == find)
-			return (last + zed);
-		zed--;
-	}
-	if (last[zed] == find)
-		return (last);
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
 	return (0);
 }

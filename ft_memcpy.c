@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbabahmi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 23:07:41 by zbabahmi          #+#    #+#             */
-/*   Updated: 2022/10/12 03:28:22 by zbabahmi         ###   ########.fr       */
+/*   Created: 2022/10/02 17:30:52 by zbabahmi          #+#    #+#             */
+/*   Updated: 2022/10/08 02:13:03 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	*last;
-	char	find;
-	size_t	zed;
+	size_t	i;
 
-	last = (char *)s;
-	find = (char)c;
-	zed = ft_strlen(s);
-	while (zed > 0)
+	i = 0;
+	if (dst == src)
+		return (0);
+	while (i < n)
 	{
-		if (last[zed] == find)
-			return (last + zed);
-		zed--;
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+			i++;
 	}
-	if (last[zed] == find)
-		return (last);
-	return (0);
+	return (dst);
 }

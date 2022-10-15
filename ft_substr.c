@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbabahmi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 23:07:41 by zbabahmi          #+#    #+#             */
-/*   Updated: 2022/10/12 03:28:22 by zbabahmi         ###   ########.fr       */
+/*   Created: 2022/10/10 23:02:11 by zbabahmi          #+#    #+#             */
+/*   Updated: 2022/10/14 07:48:43 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*last;
-	char	find;
-	size_t	zed;
+	char	*str;
+	size_t	a;
+	size_t	b;
 
-	last = (char *)s;
-	find = (char)c;
-	zed = ft_strlen(s);
-	while (zed > 0)
+	a = 0;
+	b = 0;
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (0);
+	while (s[a])
 	{
-		if (last[zed] == find)
-			return (last + zed);
-		zed--;
+		if (a >= start && b < len)
+		{
+			str[b] = s[a];
+			b++;
+		}
+		a++;
 	}
-	if (last[zed] == find)
-		return (last);
-	return (0);
+	str[b] = '\0';
+	return (str);
 }

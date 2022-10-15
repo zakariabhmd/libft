@@ -6,7 +6,7 @@
 /*   By: zbabahmi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 00:37:20 by zbabahmi          #+#    #+#             */
-/*   Updated: 2022/10/08 00:42:27 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2022/10/12 03:31:42 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	s;
 	size_t	i;
 
+	if (!dstsize)
+		return (0);
 	d = ft_strlen(dst);
 	s = ft_strlen(src);
 	i = 0;

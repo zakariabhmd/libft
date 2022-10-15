@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbabahmi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 23:07:41 by zbabahmi          #+#    #+#             */
-/*   Updated: 2022/10/12 03:28:22 by zbabahmi         ###   ########.fr       */
+/*   Created: 2022/10/12 03:21:38 by zbabahmi          #+#    #+#             */
+/*   Updated: 2022/10/12 03:25:54 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strdup(const char *s1)
 {
-	char	*last;
-	char	find;
-	size_t	zed;
+	char	*i;
+	size_t	alpha;
+	size_t	beta;
 
-	last = (char *)s;
-	find = (char)c;
-	zed = ft_strlen(s);
-	while (zed > 0)
+	beta = 0;
+	alpha = ft_strlen(s1);
+	i = (char *)malloc(sizeof(char) * (alpha) + 1);
+	if (!i)
+		return (0);
+	while (beta < alpha)
 	{
-		if (last[zed] == find)
-			return (last + zed);
-		zed--;
+		i[beta] = s1[beta];
+		beta++;
 	}
-	if (last[zed] == find)
-		return (last);
-	return (0);
+	i[beta] = '\0';
+	return (i);
 }

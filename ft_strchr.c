@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbabahmi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 23:07:41 by zbabahmi          #+#    #+#             */
-/*   Updated: 2022/10/12 03:28:22 by zbabahmi         ###   ########.fr       */
+/*   Created: 2022/10/05 22:37:02 by zbabahmi          #+#    #+#             */
+/*   Updated: 2022/10/07 22:35:17 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	char	*last;
-	char	find;
-	size_t	zed;
+	char	*zed;
 
-	last = (char *)s;
-	find = (char)c;
-	zed = ft_strlen(s);
-	while (zed > 0)
+	zed = (char *)s;
+	while (*zed != c)
 	{
-		if (last[zed] == find)
-			return (last + zed);
-		zed--;
+		if (*zed == '\0')
+		{
+			return (0);
+		}
+		zed++;
 	}
-	if (last[zed] == find)
-		return (last);
-	return (0);
+	return (zed);
 }
