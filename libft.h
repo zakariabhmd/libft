@@ -6,7 +6,7 @@
 /*   By: zbabahmi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 21:45:38 by zbabahmi          #+#    #+#             */
-/*   Updated: 2022/10/14 05:08:18 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2022/10/17 10:24:09 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ int		ft_atoi(const char *str);
 char	*ft_strjoin(char const *s1, char const *s2);
 void	*ft_memmove(void *dst, const void *src, size_t n);
 char	*ft_strtrim(char const	*s1, char const *set);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 
 

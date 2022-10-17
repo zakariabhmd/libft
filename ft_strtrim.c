@@ -35,9 +35,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str[i] = 0;
 	return (str);
 }
-// int main (){
-// 	char name[50] = "aaaaaZakxariacaaaaaaa";
-// 	char toremove[10] = "a";
-// 	printf("%s\n", ft_strtrim(name, toremove));
-// 	return 0;
-// }
