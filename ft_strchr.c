@@ -6,7 +6,7 @@
 /*   By: zbabahmi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 22:37:02 by zbabahmi          #+#    #+#             */
-/*   Updated: 2022/10/07 22:35:17 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2022/10/22 18:19:07 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strchr(const char *s, int c)
 	char	*zed;
 
 	zed = (char *)s;
-	while (*zed != c)
+	while (*zed != (char)c)
 	{
 		if (*zed == '\0')
 		{

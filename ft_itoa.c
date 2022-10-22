@@ -6,56 +6,57 @@
 /*   By: zbabahmi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 17:30:28 by zbabahmi          #+#    #+#             */
-/*   Updated: 2022/10/20 17:35:11 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2022/10/22 18:45:54 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	my_len(int n)
+long int	ft_counter(int c)
 {
-	size_t	len;
+	int	i;
 
-	if (n == 0)
-		return (1);
-	len = 0;
-	if (n < 0)
-		len++;
-	while (n)
+	i = 0;
+	if (c <= 0)
+		i++;
+	while (c != 0)
 	{
-		n /= 10;
-		len++;
+		i++;
+		c /= 10;
 	}
-	return (len);
+	return (i);
+}
+
+void	converter(char *p, long int i, long int a)
+{
+	while (a != 0)
+	{
+		p[i] = (a % 10) + 48;
+		i--;
+		a /= 10;
+	}
 }
 
 char	*ft_itoa(int n)
 {
-	size_t	len;
-	size_t	i;
-	char	*result;
+	long int	i;
+	char		*ptr;
+	long int	b;
 
-	len = my_len(n);
-	result = (char *)malloc(sizeof(char) * (len + 1));
-	if (!result)
+	b = (long int)n;
+	i = ft_counter(b);
+	ptr = malloc(i + 1);
+	if (!ptr)
 		return (0);
-	result[len] = '\0';
-	while (n < 0)
+	ptr[i] = '\0';
+	i--;
+	if (b == 0)
+		ptr[0] = '0';
+	else if (b < 0)
 	{
-		result[0] = '-';
-		i = 1;
+		b *= (-1);
+		ptr[0] = '-';
 	}
-	i = 0;
-	while (len-- > 0)
-		if (n < 0)
-		{
-			result[len] = '0' + n % 10 * (-1);
-			n /= 10;
-		}
-		else
-		{
-			result[len] = '0' + n % 10;
-			n /= 10;
-		}
-	return (result);
+	converter(ptr, i, b);
+	return (ptr);
 }

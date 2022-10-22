@@ -33,31 +33,42 @@ int	counter(const char *tpm, char c)
 	return (i);
 }
 
-char	**ft_split(char const *s, char c)
+int	size_word(char const *s, char c, int i)
 {
-	size_t	i;
-	size_t	b;
-	int		index;
-	char	**sp;
+	int	size;
 
-	sp = (char **)malloc((counter(s, c) + 1) * (sizeof(char *)));
-	if (!sp)
-		return (0);
-	i = 0;
-	b = 0;
-	index = -1;
-	while (i <= ft_strlen(s))
+	size = 0;
+	while (s[i] != c && s[i])
 	{
-		if (s[i] != c && index < 0)
-			index = i;
-		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
-		{
-			sp[b] = ft_substr(s, index, i);
-			index = -1;
-			b++;
-		}
+		size++;
 		i++;
 	}
-	sp[b] = 0;
+	return (size);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int	i;
+	int	word;
+	int	size;
+	char	**sp;
+	int		j;
+
+	i = 0;
+	j = -1;
+	word = counter(s, c);
+	sp = (char**)malloc((word + 1) * sizeof(char *));
+	if (!sp)
+		return (0);
+	while (++j < word)
+	{
+		while (s[i] == c)
+			i++;
+		size = size_word(s, c, i);
+		sp[j] = ft_substr(s, i, size);
+		i += size;
+	}
+	sp[j] = 0;
 	return (sp);
+
 }
