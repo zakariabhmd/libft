@@ -6,7 +6,7 @@
 /*   By: zbabahmi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 21:45:38 by zbabahmi          #+#    #+#             */
-/*   Updated: 2022/10/21 00:46:56 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2022/10/25 21:54:41 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	**ft_split(char const *s, char c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+char	*ft_itoa(int n);
 
 #endif

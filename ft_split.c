@@ -6,7 +6,7 @@
 /*   By: zbabahmi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:11:18 by zbabahmi          #+#    #+#             */
-/*   Updated: 2022/10/20 16:27:50 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2022/10/23 17:45:15 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,16 @@ int	size_word(char const *s, char c, int i)
 
 char	**ft_split(char const *s, char c)
 {
-	int	i;
-	int	word;
-	int	size;
+	int		i;
+	int		word;
+	int		size;
 	char	**sp;
 	int		j;
 
 	i = 0;
 	j = -1;
 	word = counter(s, c);
-	sp = (char**)malloc((word + 1) * sizeof(char *));
+	sp = (char **)malloc((word + 1) * sizeof(char *));
 	if (!sp)
 		return (0);
 	while (++j < word)
@@ -70,5 +70,4 @@ char	**ft_split(char const *s, char c)
 	}
 	sp[j] = 0;
 	return (sp);
-
 }
